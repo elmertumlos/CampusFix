@@ -1,0 +1,6 @@
+CREATE TABLE report_photos (
+  report_id INTEGER PRIMARY KEY REFERENCES reports(id) ON DELETE CASCADE,
+  share_token TEXT NOT NULL UNIQUE,
+  jpeg BLOB NOT NULL CHECK (length(jpeg) BETWEEN 4 AND 250000),
+  revision INTEGER NOT NULL DEFAULT 1
+);

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CampusFix</string>
+    <string name="notification_channel">New maintenance reports</string>
+    <string name="notification_title">New maintenance report</string>
+    <string name="notification_body">Open CampusFix to review it.</string>
+    <string name="retry">Try again</string>
+    <string name="choose_report_photo">Choose a report photo</string>
+    <string name="photo_picker_unavailable">CampusFix couldn’t open a photo picker.</string>
+    <string name="dashboard_unavailable">CampusFix couldn’t load. Check your connection and try again.</string>
+</resources>

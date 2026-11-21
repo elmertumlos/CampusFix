@@ -1,0 +1,59 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "campusfix",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-19",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "campusfix",
+      "database_id": "3a135ff4-d588-4d7a-b3ef-11eb65d3d4c5"
+    }
+  ],
+  "dev": {
+    "ip": "127.0.0.1",
+    "port": 8787
+  },
+  "env": {
+    "production": {
+      "name": "campusfix",
+      "account_id": "00000000000000000000000000000000",
+      "workers_dev": false,
+      "preview_urls": false,
+      "routes": [
+        {
+          "pattern": "campusfix.example.com",
+          "custom_domain": true
+        }
+      ],
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "campusfix-production",
+          "database_id": "00000000-0000-4000-8000-000000000000"
+        }
+      ],
+      "vars": {
+        "TURNSTILE_SITE_KEY": "YOUR_TURNSTILE_SITE_KEY"
+      },
+      "triggers": {
+        "crons": [
+          "* * * * *"
+        ]
+      },
+      "secrets": {
+        "required": [
+          "STAFF_USERNAME",
+          "STAFF_PASSWORD",
+          "TURNSTILE_SECRET_KEY",
+          "FIREBASE_SERVICE_ACCOUNT"
+        ]
+      }
+    }
+  }
+}
